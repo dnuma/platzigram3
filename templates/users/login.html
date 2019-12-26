@@ -1,0 +1,41 @@
+{% extends "users/base.html" %}
+
+{% block head_content %}
+    <title>Platzigram Conéctate</title>
+{% endblock %}
+
+
+{% block container %}
+
+    {% if error %}
+        <p class="alert alert-danger">{{ error }}</p>
+    {% endif %}
+
+    <form method="POST" action="{% url "users:login" %}">
+
+
+        {% csrf_token %}        
+        
+        <div class="form-grouop">
+            <input class="form-control" type="text" placeholder="Username" name="username" />
+        </div>
+
+        <div class="form-grouop">
+            <input class="form-control" type="password" placeholder="Password" name="password" />
+        </div>
+        
+        <button class="btn btn-primary btn-block mt-5" type="submit">Conéctate!</button>
+        
+    </form>
+
+    <p class="mt-4"> ¿No tienes cuenta? <a href="{% url "users:signup" %}">Regístrate acá</a></p>
+    
+    
+{% endblock %}
+
+<!--
+    el action="{% url}" toma un nombre de URL (del url.py) y lo convierte a una URL normal
+    {% csrf_token %} se usa para habilitar el login
+
+    Para que el login sea obligatorio, en POST/views.py se pone el decorador "login_required"
+-->

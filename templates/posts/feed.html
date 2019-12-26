@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+<!--
+ sintaxis https://docs.djangoproject.com/en/3.0/ref/templates/builtins/ 
+-->
+
+{% block head_content %}
+<title>Platzigram</title>
+{% endblock%}
+
+{% block container %}
+<div class="container">
+  <div class="row">
+
+    {% for post in posts %}
+      {% include "posts/post_card.html" %}
+    {% endfor %}
+  </div>
+</div>
+
+{% include "pagination.html" %}
+
+{% endblock %}
+

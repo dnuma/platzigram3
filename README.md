@@ -1,2 +1,2 @@
 # platzigram3
-# no entiendo un culo de estooo
+# Proyecto en django, archivado
